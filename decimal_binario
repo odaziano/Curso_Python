@@ -1,0 +1,26 @@
+# print(1<<2)
+# print(1<<3)
+# print(1<<4)
+# print(1<<5)
+# print(1<<6)
+
+dividendo = 64
+divisor = 2
+cociente = dividendo//1
+resto = 0
+mi_binario = []
+
+while cociente >= 2:
+    dividendo = cociente
+    cociente = dividendo//divisor
+    resto = dividendo%divisor
+    mi_binario.append(resto)
+    print("Dividendo:", dividendo,  "Cociente:", cociente , "Resto", resto)
+    print(mi_binario)
+
+mi_binario.append(cociente)
+print("Dividendo:", dividendo,  "Cociente:", cociente , "Resto", resto)
+print(mi_binario)
+
+print("El número binario es:", mi_binario[::-1])
+
