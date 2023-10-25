@@ -1,10 +1,8 @@
 # print(1<<2)
-# print(1<<3)
-# print(1<<4)
-# print(1<<5)
-# print(1<<6)
 
-dividendo = 64
+decimal = int(input("Ingrese un número decimal por teclado: "))
+
+dividendo = decimal
 divisor = 2
 cociente = dividendo//1
 resto = 0
@@ -20,7 +18,5 @@ while cociente >= 2:
 
 mi_binario.append(cociente)
 print("Dividendo:", dividendo,  "Cociente:", cociente , "Resto", resto)
-print(mi_binario)
-
-print("El número binario es:", mi_binario[::-1])
+print(f"\nEl número binario de {decimal} es:", mi_binario[::-1])
 
