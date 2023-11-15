@@ -36,9 +36,9 @@ Debe retornar el número total de vocales. Las vocales pueden ser mayúsculas o 
 #         continue
 # print(mayor)
 
-# Los números primos son aquellos que solo son divisibles entre ellos mismos y el 1, es decir, 
+"""Los números primos son aquellos que solo son divisibles entre ellos mismos y el 1, es decir, 
 # que si intentamos dividirlos por cualquier otro número, el resultado no es entero.
-# Dicho de otra forma, si haces la división por cualquier número que no sea 1 o él mismo, se obtiene un resto distinto de cero.
+# Dicho de otra forma, si haces la división por cualquier número que no sea 1 o él mismo, se obtiene un resto distinto de cero."""
 
 # lista_primos = []
 # n = 40
@@ -197,24 +197,24 @@ La funcion debe recorrer elemento por elemento hasta encontrar la S y devolver l
 devolviendo una nueva lista sin duplicados. El orden de los elementos debe mantenerse."""
 
 # lista = ["Hola", "Mundo", "Hola", "Ejercicio", "Dos", "Numero", "Dos", "Dos"]
-# lista = [1, 2, 2, 3, 4, 4, 5, 5, 5, 2]
+lista = [1, 2, 2, 3, 4, 4, 5, 5, 5, 2]
 
-# NOT IN
+"""NOT IN"""
 # nueva_lista = []
 # for elemento in lista:
 #     if elemento not in nueva_lista:
 #         nueva_lista.append(elemento)
 # print(nueva_lista)
 
-# COMPRESIÓN
+"""COMPRESIÓN"""
 # duplicados = [numero for numero in lista if lista.count(numero) > 1]
 # print(duplicados)
 
-# ENUMERATE (lista con cadenas: funciona - lista con numeros se come el último 2 ???)
+"""ENUMERATE (lista con cadenas: funciona - lista con numeros se come el último 2 ???)"""
 # for i, elemento in enumerate(lista):
-#     print(i, elemento)
-#     if lista.count(elemento) > 1:
-#         lista.remove(elemento)
+    # print(i, elemento)
+    # if lista.count(elemento) > 1:
+    #     lista.remove(elemento)
 
 # print(lista)
 # nueva_lista = lista.copy()
@@ -294,10 +294,13 @@ Devolver un diccionario con los elementos y sus repeticiones.
 
 """7) Escribe una función que tome una lista de números como argumento y devuelva
  `True` si la lista está ordenada en orden descendente y `False` en caso contrario."""
-numerosF = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-numerosT = [11, 9, 6, 3, 1]
+# numerosF = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# numerosT = [11, 9, 6, 3, 1]
 
-if numerosT == sorted(numerosT, reverse = True):
-    print(True)
-else:
-    print(False)
+# if numerosT == sorted(numerosT, reverse = True):
+#     print(True)
+# else:
+#     print(False)
+
+"""PPI_carrito_compras"""
+
