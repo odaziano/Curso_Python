@@ -22,14 +22,14 @@ limpiar_consola()
 
 
 """ Importar mi modulo color """
-import color
+from color import color
 
 
 """ Menú Principal"""
 def menu_ppal():
-    print(color.magenta + color.negrita + "=======================")
+    print(color["magenta"] + color["negrita"] + "=======================")
     print("  M I N I M A R K E T   ")
-    print("=======================" + color.back)
+    print("=======================" + color["back"])
     print("1. Agregar producto")
     print("2. Eliminar producto")
     print("3. Ver lista de compras")
@@ -51,9 +51,9 @@ productos = [
 """ Mostrar lista de productos disponibles"""
 def menu_productos():
     limpiar_consola()
-    print(color.cyan + "=======================")
+    print(color["cyan"] + "=======================")
     print("Productos disponibles  ")
-    print("=======================" + color.back)
+    print("=======================" + color["back"])
     for producto in productos:
         print(f"Código: {producto['codigo']}, Descripción: {producto['descripcion']}, Valor: ${producto['valor']:.2f}")
 
@@ -62,7 +62,7 @@ def menu_productos():
 ticket = {}     # Variable pública
 def mostrar_ticket():
     if not ticket:
-        print(color.rojo + "El ticket está vacío." + color.back)
+        print(color["rojo"] + "El ticket está vacío." + color["back"])
         return
     if not finalizar_compra:
         limpiar_consola()
@@ -88,10 +88,10 @@ def buscar_producto(criterio, valor):
 def agregar_producto():
     limpiar_consola()
     menu_productos()
-    codigo_busqueda = str(input(color.naranja + "Ingrese el código del producto: " + color.back))
+    codigo_busqueda = str(input(color["naranja"] + "Ingrese el código del producto: " + color["back"]))
     resultado = buscar_producto("codigo", codigo_busqueda)
     if resultado:
-        cantidad = int(input(color.naranja + "Ingrese la cantidad: " + color.back))
+        cantidad = int(input(color["naranja"] + "Ingrese la cantidad: " + color["back"]))
         if codigo_busqueda in ticket:
             ticket[codigo_busqueda] += cantidad
             lista_compras()
@@ -100,34 +100,34 @@ def agregar_producto():
             lista_compras()
     else:
         limpiar_consola()
-        print(color.rojo + f"Producto {codigo_busqueda} no encontrado." + color.back)
+        print(color["rojo"] + f"Producto {codigo_busqueda} no encontrado." + color["back"])
         return
 
 """ Eliminar producto  Opción 2 """
 def eliminar_producto():
     limpiar_consola()
     if not ticket:
-        print(color.rojo + "El carrito está vacío." + color.back)
+        print(color["rojo"] + "El carrito está vacío." + color["back"])
         return
     mostrar_ticket()
-    codigo_eliminar = str(input(color.naranja + "Ingrese el código del producto que desea eliminar del ticket: " + color.back))
+    codigo_eliminar = str(input(color["naranja"] + "Ingrese el código del producto que desea eliminar del ticket: " + color["back"]))
     if codigo_eliminar in ticket:
         resultado = buscar_producto("codigo", codigo_eliminar)
-        cantidad_eliminar = int(input(color.naranja + "Ingrese la cantidad que desea eliminar: " + color.back))
+        cantidad_eliminar = int(input(color["naranja"] + "Ingrese la cantidad que desea eliminar: " + color["back"]))
         if cantidad_eliminar < ticket[codigo_eliminar]:
             ticket[codigo_eliminar] -= cantidad_eliminar
             lista_compras()
-            print(color.rojo + f"Código: {resultado['codigo']}, {resultado['descripcion']}, Cantidad: {cantidad_eliminar}, (s) eliminado(s) del ticket." + color.back)
+            print(color["rojo"] + f"Código: {resultado['codigo']}, {resultado['descripcion']}, Cantidad: {cantidad_eliminar}, (s) eliminado(s) del ticket." + color["back"])
         elif cantidad_eliminar == ticket[codigo_eliminar]:
             del ticket[codigo_eliminar]
             lista_compras()
-            print(color.rojo + f"Código: {resultado['codigo']}, {resultado['descripcion']}(s) eliminado(s) completamente del ticket." + color.back)
+            print(color["rojo"] + f"Código: {resultado['codigo']}, {resultado['descripcion']}(s) eliminado(s) completamente del ticket." + color["back"])
         else:
             lista_compras()
-            print(color.rojo + "La cantidad ingresada es mayor que la cantidad en el ticket." + color.back)
+            print(color["rojo"] + "La cantidad ingresada es mayor que la cantidad en el ticket." + color["back"])
     else:
         lista_compras()
-        print(color.rojo + "El producto no está en el ticket." + color.back)
+        print(color["rojo"] + "El producto no está en el ticket." + color["back"])
 
 
 """ Ver lista compras  Opción 3 """
@@ -140,23 +140,23 @@ def lista_compras():
 def finalizar_compra():
     limpiar_consola()
     if not ticket:
-        print(color.rojo + "El ticket está vacío. No se puede finalizar la compra." + color.back)
+        print(color["rojo"] + "El ticket está vacío. No se puede finalizar la compra." + color["back"])
         return
 
     total = sum(buscar_producto("codigo", codigo)["valor"] * cantidad for codigo, cantidad in ticket.items())
-    print(color.verde + "=======================")
+    print(color["verde"] + "=======================")
     print("       T I C K E T       ")
-    print("=======================" + color.back)
+    print("=======================" + color["back"])
     mostrar_ticket()
-    print(color.negro + color.famarillo + color.negrita + f"Total a pagar: ${total:.2f} " + color.back)
-    print(color.verde + "Gracias!, por su compra." + color.back)
+    print(color["negro"] + color["famarillo"] + color["negrita"] + f"Total a pagar: ${total:.2f} " + color["back"])
+    print(color["verde"] + "Gracias!, por su compra." + color["back"])
     ticket.clear()
 
 
 """ Menú principal"""
 while True:
     menu_ppal()
-    seleccion = input(color.naranja + "Ingrese el número de la opción que desea: " + color.back)
+    seleccion = input(color["naranja"] + "Ingrese el número de la opción que desea: " + color["back"])
     if seleccion == "1":
         agregar_producto()
     elif seleccion == "2":
@@ -170,5 +170,5 @@ while True:
         print("Eligió salir del programa.")
         break
     else:
-        print(color.rojo + "Opción no válida. Por favor, ingrese un número del 1 al 5." + color.back)
+        print(color["rojo"] + "Opción no válida. Por favor, ingrese un número del 1 al 5." + color["back"])
 
