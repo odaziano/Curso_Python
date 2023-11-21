@@ -10,9 +10,26 @@ Los productos disponibles son:
 Al finalizar la compra, debe “imprimirse” el ticket de compra, el cual contendrá la lista de productos y el precio final."""
 
 
+""" Limpiar consola """
+import os
+def limpiar_consola():
+    sistema_operativo = os.name
+    if sistema_operativo == 'nt':  # Windows
+        os.system('cls')
+    else:  # Unix (Linux, macOS)
+        os.system('clear')
+limpiar_consola()
+
+
+""" Importar mi modulo color """
+import color
+
+
 """ Menú Principal"""
-def mostrar_menu():
-    print("Menú:")
+def menu_ppal():
+    print(color.magenta + color.negrita + "=======================")
+    print("  M I N I M A R K E T   ")
+    print("=======================" + color.back)
     print("1. Agregar producto")
     print("2. Eliminar producto")
     print("3. Ver lista de compras")
@@ -22,97 +39,136 @@ def mostrar_menu():
 
 """ Lista de productos """
 productos = [
-    {"item": 1, "descripcion": "Leche", "valor": 50.00},
-    {"item": 2, "descripcion": "Galletas", "valor": 35.00},
-    {"item": 3, "descripcion": "Gaseosa", "valor": 87.00},
-    {"item": 4, "descripcion": "Huevos", "valor": 66.00},
-    {"item": 5, "descripcion": "Aceite", "valor": 110.00},
-    {"item": 6, "descripcion": "Pan", "valor": 20.00},
+    {"codigo": "1", "descripcion": "Leche", "valor": 50.00},
+    {"codigo": "2", "descripcion": "Galletas", "valor": 35.00},
+    {"codigo": "3", "descripcion": "Gaseosa", "valor": 87.00},
+    {"codigo": "4", "descripcion": "Huevos", "valor": 66.00},
+    {"codigo": "5", "descripcion": "Aceite", "valor": 110.00},
+    {"codigo": "6", "descripcion": "Pan", "valor": 20.00},
 ]
 
 
 """ Mostrar lista de productos disponibles"""
-def mostrar_menu_productos():
+def menu_productos():
+    limpiar_consola()
+    print(color.cyan + "=======================")
+    print("Productos disponibles  ")
+    print("=======================" + color.back)
     for producto in productos:
-        print(f"Ítem: {producto['item']}, Descripción: {producto['descripcion']}, Valor: ${producto['valor']:.2f}")
+        print(f"Código: {producto['codigo']}, Descripción: {producto['descripcion']}, Valor: ${producto['valor']:.2f}")
 
 
 """ Mostrar ticket con los productos del carrito"""
-ticket = []
+ticket = {}     # Variable pública
 def mostrar_ticket():
-    pass
+    if not ticket:
+        print(color.rojo + "El ticket está vacío." + color.back)
+        return
+    if not finalizar_compra:
+        limpiar_consola()
+    print("Productos en el carrito ")
+    print("=======================")
+    for codigo, cantidad in ticket.items():
+        producto = buscar_producto("codigo", codigo)
+        descripcion = producto["descripcion"]
+        valor_unitario = producto["valor"]
+        total_producto = valor_unitario * cantidad
+        print(f"Código: {codigo}, Descripción: {descripcion}, Cantidad: {cantidad}, Valor Unitario: ${valor_unitario:.2f}, Total: ${total_producto:.2f}")
 
 
-""" Opción Agregar producot """
-def Agregar_producto():
-    ticket = []
-    while True:
-        mostrar_menu_productos()
-        seleccion_producto = input("Ingrese el ítem del producto que desea: ")
-        ticket.append(seleccion_producto)
-        print(ticket)
+""" Buscar producto"""
+def buscar_producto(criterio, valor):
+    for producto in productos:
+        if producto[criterio] == valor:
+            return producto
+    return None
 
 
+""" Agregar producto  Opción 1 """
+def agregar_producto():
+    limpiar_consola()
+    menu_productos()
+    codigo_busqueda = str(input(color.naranja + "Ingrese el código del producto: " + color.back))
+    resultado = buscar_producto("codigo", codigo_busqueda)
+    if resultado:
+        cantidad = int(input(color.naranja + "Ingrese la cantidad: " + color.back))
+        if codigo_busqueda in ticket:
+            ticket[codigo_busqueda] += cantidad
+            lista_compras()
+        else:
+            ticket[codigo_busqueda] = cantidad
+            lista_compras()
+    else:
+        limpiar_consola()
+        print(color.rojo + f"Producto {codigo_busqueda} no encontrado." + color.back)
+        return
 
-def opcion_2():
-    print("Seleccionaste la Opción 2.")
-    # Aquí va la lógica para la Opción 2
-def opcion_3():
-    print("Seleccionaste la Opción 3.")
-    # Aquí va la lógica para la Opción 3
-def opcion_4():
-    print("Seleccionaste la Opción 4.")
-    # Aquí va la lógica para la Opción 4
+""" Eliminar producto  Opción 2 """
+def eliminar_producto():
+    limpiar_consola()
+    if not ticket:
+        print(color.rojo + "El carrito está vacío." + color.back)
+        return
+    mostrar_ticket()
+    codigo_eliminar = str(input(color.naranja + "Ingrese el código del producto que desea eliminar del ticket: " + color.back))
+    if codigo_eliminar in ticket:
+        resultado = buscar_producto("codigo", codigo_eliminar)
+        cantidad_eliminar = int(input(color.naranja + "Ingrese la cantidad que desea eliminar: " + color.back))
+        if cantidad_eliminar < ticket[codigo_eliminar]:
+            ticket[codigo_eliminar] -= cantidad_eliminar
+            lista_compras()
+            print(color.rojo + f"Código: {resultado['codigo']}, {resultado['descripcion']}, Cantidad: {cantidad_eliminar}, (s) eliminado(s) del ticket." + color.back)
+        elif cantidad_eliminar == ticket[codigo_eliminar]:
+            del ticket[codigo_eliminar]
+            lista_compras()
+            print(color.rojo + f"Código: {resultado['codigo']}, {resultado['descripcion']}(s) eliminado(s) completamente del ticket." + color.back)
+        else:
+            lista_compras()
+            print(color.rojo + "La cantidad ingresada es mayor que la cantidad en el ticket." + color.back)
+    else:
+        lista_compras()
+        print(color.rojo + "El producto no está en el ticket." + color.back)
 
-# Menú principal
+
+""" Ver lista compras  Opción 3 """
+def lista_compras():
+    limpiar_consola()
+    mostrar_ticket()
+
+
+""" Finalizar la compra Opción 4 """
+def finalizar_compra():
+    limpiar_consola()
+    if not ticket:
+        print(color.rojo + "El ticket está vacío. No se puede finalizar la compra." + color.back)
+        return
+
+    total = sum(buscar_producto("codigo", codigo)["valor"] * cantidad for codigo, cantidad in ticket.items())
+    print(color.verde + "=======================")
+    print("       T I C K E T       ")
+    print("=======================" + color.back)
+    mostrar_ticket()
+    print(color.negro + color.famarillo + color.negrita + f"Total a pagar: ${total:.2f} " + color.back)
+    print(color.verde + "Gracias!, por su compra." + color.back)
+    ticket.clear()
+
+
+""" Menú principal"""
 while True:
-    mostrar_menu()
-    seleccion = input("Ingrese el número de la opción que desea: ")
+    menu_ppal()
+    seleccion = input(color.naranja + "Ingrese el número de la opción que desea: " + color.back)
     if seleccion == "1":
-        Agregar_producto()
+        agregar_producto()
     elif seleccion == "2":
-        opcion_2()
+        eliminar_producto()
     elif seleccion == "3":
-        opcion_3()
+        lista_compras()
     elif seleccion == "4":
-        opcion_4()
+        finalizar_compra()
     elif seleccion == "5":
-        print("Saliendo del programa.")
+        limpiar_consola()
+        print("Eligió salir del programa.")
         break
     else:
-        print("Opción no válida. Por favor, ingrese un número del 1 al 5.")
+        print(color.rojo + "Opción no válida. Por favor, ingrese un número del 1 al 5." + color.back)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-En Python, :.2f es una especificación de formato que se utiliza al formatear números en una cadena (string). Esta especificación controla la cantidad de dígitos que se mostrarán después del punto decimal cuando se formatea un número en punto flotante.
-:: Marca el comienzo de la especificación de formato.
-.2: Indica que se deben mostrar dos dígitos después del punto decimal.
-f: Indica que el número es un número de punto flotante"""

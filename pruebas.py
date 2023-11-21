@@ -304,3 +304,32 @@ Devolver un diccionario con los elementos y sus repeticiones.
 
 """PPI_carrito_compras"""
 
+productos = [
+    {"codigo": 1, "descripcion": "Leche", "valor": 50.00},
+    {"codigo": 2, "descripcion": "Galletas", "valor": 35.00},
+    {"codigo": 3, "descripcion": "Gaseosa", "valor": 87.00},
+    {"codigo": 4, "descripcion": "Huevos", "valor": 66.00},
+    {"codigo": 5, "descripcion": "Aceite", "valor": 110.00},
+    {"codigo": 6, "descripcion": "Pan", "valor": 20.00},
+]
+""" Imprimir lista con diccionarios"""
+print("Lista de productos:")
+for producto in productos:
+    print(f"Código: {producto['codigo']}, Descripción: {producto['descripcion']}, Valor: ${producto['valor']:.2f}")
+
+""" Buscar en la lista de diccionarios"""
+def buscar_producto(criterio, valor):
+    for producto in productos:
+        if producto[criterio] == valor:
+            return producto
+    return None
+
+# Ejemplo de uso:
+
+codigo_busqueda = int(input("Ingrese el código a buscar: "))
+resultado = buscar_producto("codigo", codigo_busqueda)
+
+if resultado:
+    print(f"Producto encontrado: Código: {resultado['codigo']}, {resultado['descripcion']}, Valor: ${resultado['valor']:.2f}")
+else:
+    print("Producto no encontrado.")

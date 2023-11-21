@@ -21,7 +21,7 @@ def piedra_papel_tijera():
 
 
 while True:
-    jugador = input("Ingresa tu opción : piedra, papel o tijera : \n").lower()
+    jugador = input("Ingresa tu opción : piedra, papel o tijera :  ").lower()
     if jugador not in opciones:
         print(f"Opción inválida, debes elegir: {opciones}")
         continue
@@ -30,3 +30,6 @@ while True:
     jugar_de_nuevo = input("Quiere jugar de nuevo? s/n: ").lower()
     if jugar_de_nuevo != "s":
         break
+    else:
+        pc = random.choice(opciones)
+
