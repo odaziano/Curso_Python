@@ -6,7 +6,7 @@ Versión en Español con Modificaciones: Estefania Cassingena Navone (@Estefania
 import random
 import string
 
-from PPI_palabras import palabras
+from PPI_ahorcado_palabras import palabras
 from PPI_ahorcado_diagramas import vidas_diccionario_visual
 
 
@@ -29,8 +29,9 @@ def ahorcado():
 
     palabra = obtener_palabra_válida(palabras)
     letras_por_adivinar = set(palabra)  # conjunto de letras de la palabra que deben ser adivinadas.
+    print(letras_por_adivinar)  # Imprimo el conjunto para ver como "Desordena" las letras, eliminando repetidas
     abecedario = set(string.ascii_uppercase) # conjunto de letras en el abecedario.
-    letras_adivinadas = set()  # letras que el usuario ha advinado durante el juego.
+    letras_adivinadas = set()  # conjunto de letras que el usuario ha advinado durante el juego.
 
     vidas = 7
 

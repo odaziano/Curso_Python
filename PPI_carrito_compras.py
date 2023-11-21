@@ -59,7 +59,7 @@ def menu_productos():
 
 
 """ Mostrar ticket con los productos del carrito"""
-ticket = {}     # Variable pública
+ticket = {}     # Diccionario público
 def mostrar_ticket():
     if not ticket:
         print(color["rojo"] + "El ticket está vacío." + color["back"])
