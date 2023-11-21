@@ -22,7 +22,7 @@ limpiar_consola()
 
 
 """ Importar mi modulo color """
-from color import color
+from PPI_color import color
 
 
 """ Menú Principal"""
