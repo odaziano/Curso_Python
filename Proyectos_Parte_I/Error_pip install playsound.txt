@@ -1,0 +1,60 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Instale la versión más reciente de PowerShell para obtener nuevas características y mejoras. https://aka.ms/PSWindows
+
+PS C:\Users\Elda> pip install playsound
+Collecting playsound
+  Using cached playsound-1.3.0.tar.gz (7.7 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... error
+  error: subprocess-exited-with-error
+
+  × Getting requirements to build wheel did not run successfully.
+  │ exit code: 1
+  ╰─> [28 lines of output]
+      Traceback (most recent call last):
+        File "C:\Users\Elda\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 353, in <module>
+          main()
+        File "C:\Users\Elda\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 335, in main
+          json_out['return_val'] = hook(**hook_input['kwargs'])
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\Elda\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 118, in get_requires_for_build_wheel
+          return hook(config_settings)
+                 ^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\Elda\AppData\Local\Temp\pip-build-env-kc7p__k2\overlay\Lib\site-packages\setuptools\build_meta.py", line 325, in get_requires_for_build_wheel
+          return self._get_build_requires(config_settings, requirements=['wheel'])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\Elda\AppData\Local\Temp\pip-build-env-kc7p__k2\overlay\Lib\site-packages\setuptools\build_meta.py", line 295, in _get_build_requires
+          self.run_setup()
+        File "C:\Users\Elda\AppData\Local\Temp\pip-build-env-kc7p__k2\overlay\Lib\site-packages\setuptools\build_meta.py", line 480, in run_setup
+          super(_BuildMetaLegacyBackend, self).run_setup(setup_script=setup_script)
+        File "C:\Users\Elda\AppData\Local\Temp\pip-build-env-kc7p__k2\overlay\Lib\site-packages\setuptools\build_meta.py", line 311, in run_setup
+          exec(code, locals())
+        File "<string>", line 6, in <module>
+        File "C:\Users\Elda\AppData\Local\Programs\Python\Python312\Lib\inspect.py", line 1282, in getsource
+          lines, lnum = getsourcelines(object)
+                        ^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\Elda\AppData\Local\Programs\Python\Python312\Lib\inspect.py", line 1264, in getsourcelines
+          lines, lnum = findsource(object)
+                        ^^^^^^^^^^^^^^^^^^
+        File "C:\Users\Elda\AppData\Local\Programs\Python\Python312\Lib\inspect.py", line 1093, in findsource
+          raise OSError('could not get source code')
+      OSError: could not get source code
+      [end of output]
+
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× Getting requirements to build wheel did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+PS C:\Users\Elda>
+
+
+
+
+
+
