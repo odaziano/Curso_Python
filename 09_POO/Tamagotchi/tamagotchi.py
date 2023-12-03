@@ -75,7 +75,7 @@ class Tamagotchi:
         self.hambre -= 10
         self.energia -= 15
         self.limpieza -= 5
-        # self.mostrar_imagen_mensaje("pikachu_comiendo2.jpg", "Estoy comiendo!")
+        # self.mostrar_imagen_mensaje("comiendo.jpg", "Estoy comiendo!")
 
     def jugar(self):
         # felicidad + 20, energía - 18 y hambre + 10
@@ -84,7 +84,7 @@ class Tamagotchi:
         self.energia -= 18
         self.hambre += 10
         self.limpieza -= 15
-        # self.mostrar_imagen_mensaje("pikachu_jugando2.jpg", "Estoy jugando!")
+        # self.mostrar_imagen_mensaje("jugando.jpg", "Estoy jugando!")
 
     def dormir(self):
         # energía + 40 y hambre + 5
@@ -94,14 +94,14 @@ class Tamagotchi:
             print(f'\n{self.nombre} está durmiendo.')
             self.energia += 40
             self.hambre += 5
-            # self.mostrar_imagen_mensaje("pikachu_durmiendo2.jpg", "Estoy durmiendo!")
+            # self.mostrar_imagen_mensaje("durmiendo.jpg", "Estoy durmiendo!")
 
     def bañarse(self):
         # limpieza = 30 felicidad -20
         print(f'\n{self.nombre} se está bañando.')
         self.limpieza += 10
         self.felicidad -= 20
-        # self.mostrar_imagen_mensaje("pikachu_ducha.jpg", "Me estoy lavando!")
+        # self.mostrar_imagen_mensaje("bañandose.jpg", "Me estoy bañando!")
 
     def ver_humor(self):
         if self.felicidad >= 50:
@@ -162,10 +162,11 @@ class Tamagotchi:
 def jugar_tamagotchi():
     print(color["amarillo"] + color["negrita"] + "=======================")
     print("  T A M A G O T C H I   ")
+    print("   Pikachu invitado!")
     print("=======================" + color["back"])
     nombre = input(color["naranja"] + "Ingresa el nombre de tu mascota: " + color["back"])
     mi_tamagotchi = Tamagotchi(nombre)
-    mi_tamagotchi.mostrar_imagen_mensaje("Pikachu_bienvenida.jpg", f"Bienvenido/a!, mi nombre es : {nombre}")
+    mi_tamagotchi.mostrar_imagen_mensaje("Pikachu_bienvenida.jpg", f"Bienvenido/a !!! : {nombre}")
 
     while mi_tamagotchi.vive:
         print("1. Alimentar")
