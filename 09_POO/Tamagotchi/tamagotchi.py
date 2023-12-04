@@ -101,7 +101,7 @@ class Tamagotchi:
         print(f'\n{self.nombre} se está bañando.')
         self.limpieza += 10
         self.felicidad -= 20
-        # self.mostrar_imagen_mensaje("bañandose.jpg", "Me estoy bañando!")
+        # self.mostrar_imagen_mensaje("bañandose.jpg", "Me estoy bau00f1ando!")
 
     def ver_humor(self):
         if self.felicidad >= 50:
@@ -147,14 +147,14 @@ class Tamagotchi:
         font = cv2.FONT_HERSHEY_SIMPLEX
         color = (255, 0, 0) # Color formato BGR azul
         grosor = 2
-        tamaño_texto = 0.5
-        cv2.putText(imagen, mensaje, (10, 380), font, tamaño_texto, color, grosor, cv2.LINE_AA)
+        tamaño_texto = 0.7
+        cv2.putText(imagen, mensaje, (10, 320), font, tamaño_texto, color, grosor, cv2.LINE_AA)
         # Mostrar la imagen en la ventana y centrarla
         cv2.imshow("Imagen", imagen)
         cv2.moveWindow("Imagen", window_x, window_y)
         # Establecer la ventana en primer plano
         cv2.setWindowProperty("Imagen", cv2.WND_PROP_TOPMOST, 1)
-        cv2.waitKey(2000)
+        cv2.waitKey(2500)
         cv2.destroyAllWindows()
 
 
@@ -162,11 +162,11 @@ class Tamagotchi:
 def jugar_tamagotchi():
     print(color["amarillo"] + color["negrita"] + "=======================")
     print("  T A M A G O T C H I   ")
-    print("   Pikachu invitado!")
+    print("Powered by Kuchipatchi!")
     print("=======================" + color["back"])
     nombre = input(color["naranja"] + "Ingresa el nombre de tu mascota: " + color["back"])
     mi_tamagotchi = Tamagotchi(nombre)
-    mi_tamagotchi.mostrar_imagen_mensaje("Pikachu_bienvenida.jpg", f"Bienvenido/a !!! : {nombre}")
+    mi_tamagotchi.mostrar_imagen_mensaje("kuchipatchi.jpg", f"Bienvenido/a ! : {nombre}")
 
     while mi_tamagotchi.vive:
         print("1. Alimentar")
