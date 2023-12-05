@@ -179,7 +179,6 @@ def jugar_tamagotchi():
 
         if accion == '1':
             mi_tamagotchi.alimentar()
-
         elif accion == '2':
             mi_tamagotchi.jugar()
         elif accion == '3':

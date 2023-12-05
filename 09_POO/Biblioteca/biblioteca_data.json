@@ -1,0 +1,37 @@
+{
+    "libros": [
+        {
+            "titulo": "Cien a\u00f1os de soledad",
+            "autor": "Gabriel Garc\u00eda M\u00e1rquez",
+            "a\u00f1o_publicacion": 1967,
+            "unidades": 5,
+            "prestados": 0
+        },
+        {
+            "titulo": "El t\u00fanel",
+            "autor": "Ernesto Sabato",
+            "a\u00f1o_publicacion": 1948,
+            "unidades": 3,
+            "prestados": 0
+        },
+        {
+            "titulo": "Rayuela",
+            "autor": "Julio Cort\u00e1zar",
+            "a\u00f1o_publicacion": 1963,
+            "unidades": 2,
+            "prestados": 0
+        }
+    ],
+    "socios": [
+        {
+            "nombre": "Juan P\u00e9rez",
+            "dni": "12345678",
+            "libros_prestados": []
+        },
+        {
+            "nombre": "Mar\u00eda G\u00f3mez",
+            "dni": "87654321",
+            "libros_prestados": []
+        }
+    ]
+}
