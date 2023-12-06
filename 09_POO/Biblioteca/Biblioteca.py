@@ -38,15 +38,15 @@ limpiar_consola()
 
 """Clase Libro"""
 class Libro:
-    def __init__(self, titulo, autor, año_publicacion, unidades):
+    def __init__(self, titulo, autor, año_publicacion, disponible= True, unidades=0, prestados=0):
         self.titulo = titulo
         self.autor = autor
         self.año_publicacion = año_publicacion
-        self.disponible = True
+        self.disponible = disponible
         self.unidades = unidades
-        self.prestados = 0
+        self.prestados = prestados
     def __str__(self):
-        return f"{self.titulo} ({self.autor}, {self.año_publicacion}) - Disponibles: {self.unidades}"
+        return f"{self.titulo} ({self.autor}, {self.año_publicacion}) - Disponibles: {self.unidades}-{self.prestados}"
 
 """Clase Socio"""
 class Socio:

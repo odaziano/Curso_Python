@@ -1,0 +1,16 @@
+[
+  {
+    "titulo": "Harry Potter y la piedra filosofal",
+    "autor": "J.K. Rowling",
+    "a\u00f1o_publicacion": 1997,
+    "disponible": false,
+    "unidades": 5
+  },
+  {
+    "titulo": "1984",
+    "autor": "George Orwell",
+    "a\u00f1o_publicacion": 1949,
+    "disponible": true,
+    "unidades": 3
+  }
+]
