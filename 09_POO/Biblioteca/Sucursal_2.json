@@ -1,0 +1,65 @@
+[
+    {
+        "titulo": "Cien a\u00f1os de soledad",
+        "autor": "Gabriel Garc\u00eda M\u00e1rquez",
+        "a\u00f1o_publicacion": 1967,
+        "disponible": true,
+        "unidades": 1
+    },
+    {
+        "titulo": "El t\u00fanel",
+        "autor": "Ernesto Sabato",
+        "a\u00f1o_publicacion": 1948,
+        "disponible": true,
+        "unidades": 1
+    },
+    {
+        "titulo": "Funes el memorioso",
+        "autor": "Jorge Luis Borges",
+        "a\u00f1o_publicacion": 1942,
+        "disponible": true,
+        "unidades": 1
+    },
+    {
+        "titulo": "Santa Evita",
+        "autor": "Tom\u00e1s Eloy Mart\u00ednez",
+        "a\u00f1o_publicacion": 1995,
+        "disponible": true,
+        "unidades": 1
+    },
+    {
+        "titulo": "Mart\u00edn Fierro",
+        "autor": "Jos\u00e9 Hern\u00e1ndez",
+        "a\u00f1o_publicacion": 1872,
+        "disponible": true,
+        "unidades": 1
+    },
+    {
+        "titulo": "Don Segundo Sombra",
+        "autor": "Ricardo G\u00fciraldes",
+        "a\u00f1o_publicacion": 1926,
+        "disponible": true,
+        "unidades": 1
+    },
+    {
+        "titulo": "Fuegos",
+        "autor": "Manguel",
+        "a\u00f1o_publicacion": 2018,
+        "disponible": true,
+        "unidades": 2
+    },
+    {
+        "titulo": "El Eternauta",
+        "autor": "H\u00e9ctor Germ\u00e1n Oesterheld",
+        "a\u00f1o_publicacion": 1957,
+        "disponible": true,
+        "unidades": 3
+    },
+    {
+        "titulo": "Rayuela",
+        "autor": "Julio Cort\u00e1zar",
+        "a\u00f1o_publicacion": 1963,
+        "disponible": true,
+        "unidades": 1
+    }
+]
