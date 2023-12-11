@@ -1,5 +1,5 @@
 import PySimpleGUI as pg
-"""pg.theme("Topanga")"""
+#pg.theme("Topanga")
 
 layout = [
 [pg.Text("Mi primera ventana")],
