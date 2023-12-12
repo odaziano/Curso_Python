@@ -1,3 +1,44 @@
+"""### Ejercicio: Tamagotchi
+Crea una clase llamada Tamagotchi que tenga los siguientes atributos:
+ATRIBUTOS
+=========
+- nombre
+- energia (inicializado en 100)
+- hambre (inicializado en 0)
+- felicidad (inicializado en 50)
+- humor (enojado, triste, indiferente, feliz, eufórico) *depende de nivel_felicidad
+- vive (inicializado en True)
+- limpieza (inicializado en 50)
+MÉTODOS
+=======
+La clase Tamagotchi debe tener los siguientes métodos:
+1. mostrar_estado: Muestra en consola:
+    - nombre
+    - energía
+    - hambre
+    - humor
+2. alimentar:
+    - hambre - 10
+    - energía - 15.
+3. jugar:
+    - felicidad + 20
+    - energía - 18
+    - hambre + 10
+4. dormir:
+    - energía + 40
+    - hambre + 5
+5. bañanrse:
+    - limpieza + 30
+    - felicidad - 5
+6. estado que revise si el Tamagotchi está vivo:
+    - vive ? energía sea mayor 0
+    - hambre <= 20
+        Si no es alimentar:
+            - energía - 20
+            - felicidad - 30
+    Si el nivel de energía llega a cero, el Tamagotchi muere y el atributo esta_vivo debe ser False."""
+
+
 import PySimpleGUI as sg
 import time
 
@@ -67,9 +108,8 @@ class Tamagotchi:
         elif self.hambre == 20:
             self.energia -= 20
             self.felicidad -= 30
-        else:
-            print(f'\nEnergía: {self.energia}, \nHambre: {self.hambre}, \nFelicidad: {self.felicidad}, \nHumor: {self.ver_humor()}, \nLimpieza: {self.limpieza}\n'.upper())
-            return
+        print(f'\nEnergía: {self.energia}, \nHambre: {self.hambre}, \nFelicidad: {self.felicidad}, \nHumor: {self.ver_humor()}, \nLimpieza: {self.limpieza}\n'.upper())
+        return
 
     def bienvenida(self):
         print(f"¡Bienvenido a Tamagotchi, {self.nombre}!")
@@ -79,7 +119,8 @@ class Tamagotchi:
 def create_layout():
     layout = [
         # [sg.Image(r'tamagotchi.png')],
-        [sg.Text("T A M A G O T C H I", font=("Helvetica", 20), justification="center", text_color="yellow")],
+        [sg.Text("T A M A G O T C H I", font=("Helvetica", 20), justification="leftr", text_color="yellow")],
+        [sg.Text("Nombre de tu mascota:", font=("Helvetica", 10), justification="left", text_color="white")]+
         [sg.InputText("", key="-NOMBRE-", size=(15, 1), justification="left", tooltip="Ingresa el nombre de tu mascota")],
         [sg.Button("Iniciar Juego")],
         [sg.Output(size=(50, 15), key="-OUTPUT-")],
